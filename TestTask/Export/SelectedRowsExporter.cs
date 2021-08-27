@@ -32,7 +32,7 @@ namespace TestTask.Export
 
             workbook.Worksheets.Remove(tempWorksheet);
             spreadsheetControl.EndUpdate();
-            MessageBox.Show("Saved ");
+            MessageBox.Show("Saved");
         }
 
         private void CopySubRanges(Worksheet sourceWorksheet, Worksheet targetWorksheet)

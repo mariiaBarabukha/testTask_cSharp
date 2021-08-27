@@ -8,23 +8,25 @@ namespace TestTask
 {
     class FileSaver : IFileSaver
     {
-        public void Save(int i)
+        public bool Save(int i)
         {
+            var format = Model.GetModel().formats[i];
             var dialog = new Microsoft.Win32.SaveFileDialog();
             dialog.InitialDirectory = "";
-            dialog.FileName = "select";
+            dialog.Filter = "*."+format+"|*.this.directory";
             if (dialog.ShowDialog() == true)
             {
                 string path = dialog.FileName;
-                path = path.Replace("\\select.this.directory", "");
                 path = path.Replace(".this.directory", "");
-                Model.GetModel().filePath = path + '.' + Model.GetModel().formats[i];
+                Model.GetModel().filePath = path + '.' + format;
+                return true;
             }
+            return false;
         }
     }
 
     public interface IFileSaver
     {
-        void Save(int i);
+        bool Save(int i);
     }
 }

@@ -44,9 +44,12 @@ namespace TestTask.ViewModels
 
         private void _export(int i)
         {
-            iFileSaver.Save(i);
-            _exp.iExporter = exporters[i];
-            _exp.Export();
+            if (iFileSaver.Save(i))
+            {
+                _exp.iExporter = exporters[i];
+                _exp.Export();
+            }
+            
         }
 
         
