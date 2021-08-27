@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="TestTask.TableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestTask"                
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxdash="http://schemas.devexpress.com/winfx/2008/xaml/dashboard"        
+             xmlns:dxsps="http://schemas.devexpress.com/winfx/2008/xaml/spreadsheet" 
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <dxb:BarManager x:Name="barManager1" ToolbarGlyphSize="Small">
+        <dxb:BarManager.Items>
+            <dxb:BarButtonItem Name="ExportCSV" Content="Export CSV" 
+               Command="{Binding ExportCSV, Mode=OneTime}"/>
+            <dxb:BarButtonItem Name="ExportTXT"
+                Command="{Binding ExportTXT, Mode=OneTime}"
+                Content="Export TXT" />
+        </dxb:BarManager.Items>
+        <Grid>
+            <dxsps:SpreadsheetControl x:Name="spreadsheetControl1"
+                BarManager="{Binding ElementName=barManager1, Mode=OneTime}"
+                >
+                <dxsps:SpreadsheetControl.MenuCustomizations>
+                    <dxsps:SpreadsheetMenuCustomization MenuType="RowHeading">
+                        <dxb:BarButtonItemLink dxb:BarItemLinkActionBase.ItemLinkIndex="0">
+                            <dxb:BarButtonItemLink.BarItemName>
+                                ExportCSV
+                            </dxb:BarButtonItemLink.BarItemName>
+                        </dxb:BarButtonItemLink>
+                    </dxsps:SpreadsheetMenuCustomization >
+                    <dxsps:SpreadsheetMenuCustomization MenuType="RowHeading">
+                        <dxb:BarButtonItemLink dxb:BarItemLinkActionBase.ItemLinkIndex="1">
+                            <dxb:BarButtonItemLink.BarItemName>
+                                ExportTXT
+                            </dxb:BarButtonItemLink.BarItemName>
+                        </dxb:BarButtonItemLink>
+                    </dxsps:SpreadsheetMenuCustomization>
+                    <dxsps:SpreadsheetMenuCustomization>
+                        <dxb:BarItemLinkSeparator dxb:BarItemLinkActionBase.ItemLinkIndex="2" />
+                    </dxsps:SpreadsheetMenuCustomization>
+
+                </dxsps:SpreadsheetControl.MenuCustomizations>
+            </dxsps:SpreadsheetControl>
+        </Grid>
+    </dxb:BarManager>
+</UserControl>
