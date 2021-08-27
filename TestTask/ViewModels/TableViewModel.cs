@@ -1,11 +1,4 @@
-﻿using DevExpress.Spreadsheet;
-using DevExpress.Xpf.Spreadsheet;
-using Prism.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prism.Commands;
 using TestTask.Export;
 
 namespace TestTask.ViewModels
