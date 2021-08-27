@@ -7,12 +7,16 @@ namespace TestTask
         public SpreadsheetControl spreadsheetControl;
         public string filePath = "";
 
-        public string[] formats = { "csv", "txt" };
-        public string[] findExtenction =
-            {
-            "CSV files (*.csv)|*.csv|XML files (*.xml)|*.xml" ,
-            "Text documents (.txt)|*.txt"
-            };
+        public string[] formats =
+        { 
+            "CSV files (*.csv)|*.csv|XML files (*.xml)|*.xml",
+            "Text documents (.txt)|*.txt" 
+        };
+        //public string[] findExtenction =
+        //    {
+        //     ,
+            
+        //    };
 
         private Model() { }
         private static Model model;
