@@ -8,6 +8,11 @@ namespace TestTask
         public string filePath = "";
 
         public string[] formats = { "csv", "txt" };
+        public string[] findExtenction =
+            {
+            "CSV files (*.csv)|*.csv|XML files (*.xml)|*.xml" ,
+            "Text documents (.txt)|*.txt"
+            };
 
         private Model() { }
         private static Model model;

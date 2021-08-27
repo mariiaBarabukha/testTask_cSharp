@@ -1,4 +1,6 @@
 ﻿
+using System.IO;
+
 namespace TestTask
 {
     class FileSaver : IFileSaver
@@ -8,12 +10,15 @@ namespace TestTask
             var format = Model.GetModel().formats[i];
             var dialog = new Microsoft.Win32.SaveFileDialog();
             dialog.InitialDirectory = "";
-            dialog.Filter = "*."+format+"|*.this.directory";
+            dialog.Filter = Model.GetModel().findExtenction[i];
             if (dialog.ShowDialog() == true)
             {
                 string path = dialog.FileName;
-                path = path.Replace(".this.directory", "");
-                Model.GetModel().filePath = path + '.' + format;
+                //if (!File.Exists(path))
+                //{
+                //    path += ('.'+format);
+                //}
+                Model.GetModel().filePath = path;
                 return true;
             }
             return false;
